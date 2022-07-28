@@ -28,6 +28,17 @@ const loading = (estado) => {
   }
 };
 
+fetchPage = async (maxP) => {
+  try {
+    const resp = await fetch("https://rickandmortyapi.com/api/character?page=");
+    const data = await resp.json();
+    const maxP = data.info.pages;
+    console.log(maxP);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // PINTAR CARDS
 const pintarCards = (data) => {
   const container = document.querySelector(".card-container");
@@ -54,15 +65,17 @@ const removeCards = () => {
 };
 
 // PAGINACION
-let page = 1;
 
 const pageOne = document.querySelector("#pageOne");
 const pageTwo = document.querySelector("#pageTwo");
 const pageThree = document.querySelector("#pageThree");
 
+let page = 1;
+// const maxPages = fetchPage(maxP);
+// console.log(maxPages);
+
 const pintarPage = () => {
   const pages = 42;
-
   const firstPage = document.querySelector("#firstPage");
   firstPage.addEventListener("click", () => {
     if (page > 1) {
@@ -83,40 +96,40 @@ const pintarPage = () => {
     }
   });
 
-  if (page < 3) {
-    pageOne.addEventListener("click", () => {
+  pageOne.addEventListener("click", () => {
+    if (page < 3) {
       page = 1;
       removeCards();
-      return fetchData(page);
-    });
-
-    pageTwo.addEventListener("click", () => {
-      page = 2;
-      removeCards();
-      return fetchData(page);
-    });
-
-    pageThree.addEventListener("click", () => {
-      page = 3;
-      removeCards();
-      return fetchData(page);
-    });
-  }
-
-  if (page >= 2) {
-    pageOne.addEventListener("click", () => {
+      fetchData(page);
+    } else {
       page--;
       removeCards();
       fetchData(page);
       navPage();
-    });
-    pageThree.addEventListener("click", () => {
+    }
+  });
+
+  pageTwo.addEventListener("click", () => {
+    if (page < 3) {
+      page = 2;
+      removeCards();
+      fetchData(page);
+    }
+  });
+
+  pageThree.addEventListener("click", () => {
+    if (page < 3) {
+      page = 3;
+      removeCards();
+      fetchData(page);
+      navPage();
+    } else {
       page++;
       removeCards();
       fetchData(page);
       navPage();
-    });
-  }
+    }
+  });
 
   fetchData(page);
 };
@@ -125,4 +138,10 @@ const navPage = () => {
   pageOne.textContent = page - 1;
   pageTwo.textContent = page;
   pageThree.textContent = page + 1;
+
+  firstPage.addEventListener("click", () => {
+    pageOne.textContent = 1;
+    pageTwo.textContent = 2;
+    pageThree.textContent = 3;
+  });
 };
