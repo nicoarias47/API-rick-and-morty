@@ -28,17 +28,6 @@ const loading = (estado) => {
   }
 };
 
-fetchPage = async (maxP) => {
-  try {
-    const resp = await fetch("https://rickandmortyapi.com/api/character?page=");
-    const data = await resp.json();
-    const maxP = data.info.pages;
-    console.log(maxP);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 // PINTAR CARDS
 const pintarCards = (data) => {
   const container = document.querySelector(".card-container");
@@ -71,11 +60,9 @@ const pageTwo = document.querySelector("#pageTwo");
 const pageThree = document.querySelector("#pageThree");
 
 let page = 1;
-// const maxPages = fetchPage(maxP);
-// console.log(maxPages);
+const pages = 42;
 
 const pintarPage = () => {
-  const pages = 42;
   const firstPage = document.querySelector("#firstPage");
   firstPage.addEventListener("click", () => {
     if (page > 1) {
@@ -101,6 +88,7 @@ const pintarPage = () => {
       page = 1;
       removeCards();
       fetchData(page);
+      navPage();
     } else {
       page--;
       removeCards();
@@ -123,6 +111,8 @@ const pintarPage = () => {
       removeCards();
       fetchData(page);
       navPage();
+    } else if (page === 42) {
+      return;
     } else {
       page++;
       removeCards();
@@ -144,4 +134,13 @@ const navPage = () => {
     pageTwo.textContent = 2;
     pageThree.textContent = 3;
   });
+  if (page === 42) {
+    pageOne.textContent = 41;
+    pageTwo.textContent = 42;
+    pageThree.textContent = "-";
+  }
 };
+
+// BUSCADOR
+
+const buscador = document.querySelector("#floatingInput");
