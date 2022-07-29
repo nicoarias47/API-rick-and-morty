@@ -137,10 +137,48 @@ const navPage = () => {
   if (page === 42) {
     pageOne.textContent = 41;
     pageTwo.textContent = 42;
-    pageThree.textContent = "-";
+    pageThree.textContent = "...";
   }
 };
 
 // BUSCADOR
 
+fetchPage = async (pagina) => {
+  const resp = await fetch(
+    "https://rickandmortyapi.com/api/character?page=" + pagina
+  );
+  const data = await resp.json();
+  return data;
+};
+
 const buscador = document.querySelector("#floatingInput");
+
+const buscarPersonaje = async () => {
+  const personajes = async (pag) => {
+    return await fetchPage(pag);
+  };
+
+  let array = [];
+  for (let i = 0; i < pages; i++) {
+    array.push(await personajes(i));
+  }
+
+  let arrayObj = [];
+  for (let i = 0; i < pages; i++) {
+    arrayObj.push(array[i].results);
+  }
+
+  let arrayPj = arrayObj.flat();
+
+  buscador.addEventListener("keyup", () => {
+    console.log(buscador.value);
+
+    arrayPj.forEach((e) => {
+      console.log(e.name);
+    });
+
+    // pintarCards(buscados);
+  });
+};
+
+buscarPersonaje();
