@@ -10,7 +10,7 @@ fetchData = async (page) => {
     );
     const data = await resp.json();
 
-    pintarCards(data);
+    pintarCards(data.results);
   } catch (error) {
     console.log(error);
   } finally {
@@ -34,7 +34,7 @@ const pintarCards = (data) => {
   const templateCards = document.querySelector("#template-cards").content;
   const fragment = document.createDocumentFragment();
 
-  data.results.forEach((el) => {
+  data.forEach((el) => {
     const clone = templateCards.cloneNode(true);
     clone.querySelector("h5").textContent = el.name;
     clone.querySelector("p").textContent = el.species;
@@ -151,34 +151,65 @@ fetchPage = async (pagina) => {
   return data;
 };
 
-const buscador = document.querySelector("#floatingInput");
+// const buscarPersonaje = async () => {
+//   const personajes = async (pag) => {
+//     return await fetchPage(pag);
+//   };
 
-const buscarPersonaje = async () => {
+//   let array = [];
+//   for (let i = 0; i < pages; i++) {
+//     array.push(await personajes(i));
+//   }
+
+//   array.forEach((e) => {
+//     for (let i = 0; i < e.results.length; i++) {
+//       //console.log(e.results[i].name);
+//       buscador.addEventListener("input", () => {
+//         const value = buscador.value.toLowerCase();
+//         const name = e.results[i].name.toLowerCase();
+
+//         removeCards();
+
+//         if (name.indexOf(value) !== -1) {
+//           // console.log(name);
+//           //console.log([e.results[i]]);
+//           //pintarCards(e.results[i]);
+//         }
+//       });
+//     }
+//   });
+// };
+
+const filtro = async () => {
+  const btnBuscar = document.querySelector("#iniciar-busqueda");
+
   const personajes = async (pag) => {
     return await fetchPage(pag);
   };
 
   let array = [];
-  for (let i = 0; i < pages; i++) {
+  for (let i = 0; i <= pages; i++) {
     array.push(await personajes(i));
   }
 
-  let arrayObj = [];
-  for (let i = 0; i < pages; i++) {
-    arrayObj.push(array[i].results);
-  }
+  btnBuscar.addEventListener("click", () => {
+    const buscador = document
+      .querySelector("#floatingInput")
+      .value.toLowerCase();
 
-  let arrayPj = arrayObj.flat();
+    array.forEach((e) => {
+      const result = e.results;
 
-  buscador.addEventListener("keyup", () => {
-    console.log(buscador.value);
-
-    arrayPj.forEach((e) => {
-      console.log(e.name);
+      for (let i = 0; i < result.length; i++) {
+        const names = Object.values(result[i].name).join("").toLowerCase();
+        if (names.indexOf(buscador) > 0) {
+          // pasamos el resultado dentro de un array para que lo lea el forEach
+          pintarCards([e.results[i]]);
+        }
+      }
     });
-
-    // pintarCards(buscados);
   });
 };
 
-buscarPersonaje();
+//buscarPersonaje();
+filtro();
