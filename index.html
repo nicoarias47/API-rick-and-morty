@@ -19,23 +19,32 @@
         <section class="title my-5 text-center">
           <h1>Rick and Morty</h1>
         </section>
-        <!-- Loading -->
-        <div class="d-flex justify-content-center mt-5 d-none" id="loading">
-          <div class="spinner-border text-info" role="status"></div>
-        </div>
 
         <!-- BUSCADOR DE PJ -->
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control"
-            id="floatingInput"
-            placeholder="Buscar Personaje"
-          />
-          <label for="floatingInput">Buscar Personaje</label>
+        <div class="row mb-3 d-flex justify-content-around">
+          <div class="col">
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInput"
+                placeholder="Buscar Personaje"
+              />
+              <label for="floatingInput">Buscar Personaje</label>
+            </div>
+          </div>
+          <div class="col-5 d-flex gap-2 align-items-center">
+            <button id="iniciar-busqueda">Buscar</button>
+            <button id="reiniciar-busqueda">Reiniciar</button>
+          </div>
         </div>
-        <button id="iniciar-busqueda">Buscar</button>
-        <button id="reiniciar-busqueda">Reiniciar</button>
+        <!-- Loading -->
+        <div
+          class="d-flex justify-content-center mt-5 d-none mb-5"
+          id="loading"
+        >
+          <div class="spinner-border text-info" role="status"></div>
+        </div>
         <!-- Cards dinamicas -->
         <section class="row card-container mb-5"></section>
       </div>
@@ -59,7 +68,7 @@
     </footer>
     <!-- TEMPLATE CARDS -->
     <template id="template-cards">
-      <article class="col-12 col-md-6 col-lg-3 mb-4 article">
+      <article class="col-6 col-sm-4 col-md-4 col-lg-3 mb-4 article">
         <div class="card">
           <img src="..." class="card-img-top" alt="..." />
           <div class="card-body">

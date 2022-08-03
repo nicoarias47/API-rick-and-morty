@@ -9,7 +9,6 @@ fetchData = async (page) => {
       "https://rickandmortyapi.com/api/character?page=" + page
     );
     const data = await resp.json();
-    console.log(page);
     pintarCards(data.results);
   } catch (error) {
     console.log(error);
