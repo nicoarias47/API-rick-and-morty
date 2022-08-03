@@ -9,7 +9,7 @@ fetchData = async (page) => {
       "https://rickandmortyapi.com/api/character?page=" + page
     );
     const data = await resp.json();
-
+    console.log(page);
     pintarCards(data.results);
   } catch (error) {
     console.log(error);
@@ -143,46 +143,14 @@ const navPage = () => {
 
 // BUSCADOR
 
-fetchPage = async (pagina) => {
-  const resp = await fetch(
-    "https://rickandmortyapi.com/api/character?page=" + pagina
-  );
-  const data = await resp.json();
-  return data;
-};
-
-// const buscarPersonaje = async () => {
-//   const personajes = async (pag) => {
-//     return await fetchPage(pag);
-//   };
-
-//   let array = [];
-//   for (let i = 0; i < pages; i++) {
-//     array.push(await personajes(i));
-//   }
-
-//   array.forEach((e) => {
-//     for (let i = 0; i < e.results.length; i++) {
-//       //console.log(e.results[i].name);
-//       buscador.addEventListener("input", () => {
-//         const value = buscador.value.toLowerCase();
-//         const name = e.results[i].name.toLowerCase();
-
-//         removeCards();
-
-//         if (name.indexOf(value) !== -1) {
-//           // console.log(name);
-//           //console.log([e.results[i]]);
-//           //pintarCards(e.results[i]);
-//         }
-//       });
-//     }
-//   });
-// };
-
 const filtro = async () => {
-  const btnBuscar = document.querySelector("#iniciar-busqueda");
-  const btnReiniciar = document.querySelector("#reiniciar-busqueda");
+  fetchPage = async (pagina) => {
+    const resp = await fetch(
+      "https://rickandmortyapi.com/api/character?page=" + pagina
+    );
+    const data = await resp.json();
+    return data;
+  };
 
   const personajes = async (pag) => {
     return await fetchPage(pag);
@@ -193,31 +161,33 @@ const filtro = async () => {
     array.push(await personajes(i));
   }
 
+  const btnBuscar = document.querySelector("#iniciar-busqueda");
+  const btnReiniciar = document.querySelector("#reiniciar-busqueda");
   btnBuscar.addEventListener("click", () => {
     const buscador = document
       .querySelector("#floatingInput")
       .value.toLowerCase();
+    if (buscador !== "") {
+      removeCards();
+      array.forEach((e) => {
+        const result = e.results;
 
-    removeCards();
+        for (let i = 0; i < result.length; i++) {
+          const names = Object.values(result[i].name).join("").toLowerCase();
 
-    array.forEach((e) => {
-      const result = e.results;
-
-      for (let i = 0; i < result.length; i++) {
-        const names = Object.values(result[i].name).join("").toLowerCase();
-        if (names.indexOf(buscador) !== -1) {
-          // pasamos el resultado dentro de un array para que lo lea el forEach
-          pintarCards([e.results[i]]);
+          if (names.indexOf(buscador) !== -1) {
+            // pasamos el resultado dentro de un array para que lo lea el forEach
+            pintarCards([e.results[i]]);
+          }
         }
-      }
-    });
+      });
+    }
   });
 
   btnReiniciar.addEventListener("click", () => {
     removeCards();
-    pintarPage();
+    fetchData(page);
   });
 };
 
-//buscarPersonaje();
 filtro();
