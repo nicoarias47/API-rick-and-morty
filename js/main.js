@@ -182,6 +182,7 @@ fetchPage = async (pagina) => {
 
 const filtro = async () => {
   const btnBuscar = document.querySelector("#iniciar-busqueda");
+  const btnReiniciar = document.querySelector("#reiniciar-busqueda");
 
   const personajes = async (pag) => {
     return await fetchPage(pag);
@@ -197,17 +198,24 @@ const filtro = async () => {
       .querySelector("#floatingInput")
       .value.toLowerCase();
 
+    removeCards();
+
     array.forEach((e) => {
       const result = e.results;
 
       for (let i = 0; i < result.length; i++) {
         const names = Object.values(result[i].name).join("").toLowerCase();
-        if (names.indexOf(buscador) > 0) {
+        if (names.indexOf(buscador) !== -1) {
           // pasamos el resultado dentro de un array para que lo lea el forEach
           pintarCards([e.results[i]]);
         }
       }
     });
+  });
+
+  btnReiniciar.addEventListener("click", () => {
+    removeCards();
+    pintarPage();
   });
 };
 
