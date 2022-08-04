@@ -1,0 +1,16 @@
+.title {
+  font-family: "Schoolbell", cursive;
+  font-size: 100px;
+  line-height: 1;
+  color: #02b1c8;
+  margin: 20px 0 25px;
+  text-shadow: 0.02em 0.02em 0.02em #7ffa67, -0.02em -0.02em 0.02em #7ffa67,
+    0 0 0.2em #7ffa67;
+  animation: textShadow 2s linear infinite alternate;
+
+  span {
+    font-size: 50px;
+    margin: 0 -12px;
+    vertical-align: middle;
+  }
+}

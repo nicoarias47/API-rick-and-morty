@@ -11,17 +11,23 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <!-- Fuente header -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <main>
       <div class="container-lg">
         <section class="title my-5 text-center">
-          <h1>Rick and Morty</h1>
+          Rick <span>and</span> Morty
         </section>
 
         <!-- BUSCADOR DE PJ -->
-        <div class="row mb-3 d-flex justify-content-around">
+        <div class="row mb-3 d-flex">
+          <div class="col d-none d-md-block col-sm-3 col-lg-3"></div>
           <div class="col">
             <div class="form-floating mb-3">
               <input
@@ -30,12 +36,14 @@
                 id="floatingInput"
                 placeholder="Buscar Personaje"
               />
-              <label for="floatingInput">Buscar Personaje</label>
+              <label for="floatingInput" class="search">Buscar Personaje</label>
             </div>
           </div>
-          <div class="col-5 d-flex gap-2 align-items-center">
-            <button id="iniciar-busqueda">Buscar</button>
-            <button id="reiniciar-busqueda">Reiniciar</button>
+          <div class="col col-sm-3 col-lg-3 d-flex align-items-center gap-2">
+            <button class="btn-buscar" id="iniciar-busqueda">Buscar</button>
+            <button class="btn-buscar" id="reiniciar-busqueda">
+              Reiniciar
+            </button>
           </div>
         </div>
         <!-- Loading -->
