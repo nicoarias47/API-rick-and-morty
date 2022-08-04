@@ -3,9 +3,9 @@
   color: $color-blue;
   font-weight: 500;
   font-size: 1.3rem;
-  border: 1px solid $color-blue;
+  border: none;
   border-radius: 2rem;
-  box-shadow: 0px 0px 6px $color-blue;
+  box-shadow: 0px 0px 9px $color-blue inset;
 }
 
 .search {
@@ -20,8 +20,8 @@
   color: whitesmoke;
   font-size: 1.2rem;
   font-weight: 400;
-  border: 1px solid $color-blue;
-  box-shadow: 0px 0px 6px $color-blue;
+  border: none;
+  box-shadow: 0px 0px 9px $color-blue inset;
 
   &:hover {
     background-color: #02b1c8b4;

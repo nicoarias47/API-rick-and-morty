@@ -1,3 +1,7 @@
+.card {
+  border: none;
+}
+
 .title {
   font-family: "Schoolbell", cursive;
   font-size: 100px;
@@ -18,9 +22,9 @@
   color: #02b1c8;
   font-weight: 500;
   font-size: 1.3rem;
-  border: 1px solid #02b1c8;
+  border: none;
   border-radius: 2rem;
-  box-shadow: 0px 0px 6px #02b1c8;
+  box-shadow: 0px 0px 9px #02b1c8 inset;
 }
 
 .search {
@@ -35,8 +39,8 @@
   color: whitesmoke;
   font-size: 1.2rem;
   font-weight: 400;
-  border: 1px solid #02b1c8;
-  box-shadow: 0px 0px 6px #02b1c8;
+  border: none;
+  box-shadow: 0px 0px 9px #02b1c8 inset;
 }
 .btn-buscar:hover {
   background-color: rgba(2, 177, 200, 0.7058823529);
@@ -44,9 +48,22 @@
 }
 
 body {
-  background-image: url(/img/background.jpg);
+  background-image: url(../img/background.jpg);
   background-repeat: repeat;
   background-size: contain;
+}
+
+.page-link {
+  background-color: rgba(0, 0, 0, 0.329);
+  color: whitesmoke;
+  border: none;
+  box-shadow: 0px 0px 5px #02b1c8 inset;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+}
+.page-link:hover {
+  background-color: #02b1c8;
+  color: whitesmoke;
 }
 
 /*# sourceMappingURL=style.css.map */
