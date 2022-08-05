@@ -1,3 +1,40 @@
 .card {
   border: none;
+  background-color: #7ffa6700;
+  color: $color-blue;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.card-body {
+  background-color: #7ffa6727;
+}
+// BACK
+
+.back .card :not(.card-title-back, .card-location, .card-gender, .card-status) {
+  opacity: 0.2;
+}
+
+.back .card .card-title-back {
+  position: absolute;
+  bottom: 80%;
+  font-size: 1.1rem;
+}
+
+.card-gender {
+  position: absolute;
+  bottom: 60%;
+  font-size: 1.1rem;
+}
+
+.card-status {
+  position: absolute;
+  bottom: 45%;
+  font-size: 1.1rem;
+}
+
+.card-location {
+  position: absolute;
+  bottom: 30%;
+  font-size: 1.1rem;
 }

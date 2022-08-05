@@ -13,4 +13,14 @@
     margin: 0 -12px;
     vertical-align: middle;
   }
+
+  &-link {
+    text-decoration: none;
+    text-transform: none;
+    color: #02b1c8;
+
+    &:hover {
+      color: #02b1c8;
+    }
+  }
 }

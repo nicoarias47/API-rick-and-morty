@@ -38,6 +38,13 @@ const pintarCards = (data) => {
     clone.querySelector("h5").textContent = el.name;
     clone.querySelector("p").textContent = el.species;
     clone.querySelector("img").setAttribute("src", el.image);
+    clone.querySelector(".card-img-top-back").setAttribute("src", el.image);
+    clone.querySelector(".card-title-back").textContent = el.name;
+    clone.querySelector(".card-status").textContent = "Status : " + el.status;
+    clone.querySelector(".card-gender").textContent = "Gender : " + el.gender;
+    clone.querySelector(".card-location").textContent =
+      "Last Location : " + el.location.name;
+
     fragment.appendChild(clone);
   });
 
@@ -156,7 +163,7 @@ const filtro = async () => {
   };
 
   let array = [];
-  for (let i = 0; i <= pages; i++) {
+  for (let i = 1; i <= pages; i++) {
     array.push(await personajes(i));
   }
 
@@ -190,3 +197,5 @@ const filtro = async () => {
 };
 
 filtro();
+
+document.querySelector(".card-flip").classList.toggle("flip");
