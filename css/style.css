@@ -1,34 +1,41 @@
 .card {
   border: none;
   background-color: rgba(127, 250, 103, 0);
-  color: #02b1c8;
+  color: whitesmoke;
   text-align: center;
   font-size: 1.2rem;
+  background-color: rgba(0, 0, 0, 0.508);
 }
 
 .card-body {
-  background-color: rgba(127, 250, 103, 0.1529411765);
+  background-color: rgba(127, 250, 103, 0);
 }
 
-.back .card :not(.card-title-back, .card-location, .card-gender, .card-status) {
-  opacity: 0.2;
+.back .card :not(.card-title-back, .card-location, .card-gender, .card-status, .card-origin) {
+  opacity: 0.15;
 }
 
 .back .card .card-title-back {
   position: absolute;
-  bottom: 80%;
+  bottom: 85%;
   font-size: 1.1rem;
 }
 
 .card-gender {
   position: absolute;
-  bottom: 60%;
+  bottom: 65%;
+  font-size: 1.1rem;
+}
+
+.card-origin {
+  position: absolute;
+  bottom: 50%;
   font-size: 1.1rem;
 }
 
 .card-status {
   position: absolute;
-  bottom: 45%;
+  bottom: 35%;
   font-size: 1.1rem;
 }
 
@@ -79,7 +86,7 @@
 .btn-buscar {
   background-color: rgba(0, 0, 0, 0.329);
   border-radius: 2rem;
-  padding: 0.4rem 0.6rem;
+  padding: 0.4rem 1rem;
   color: whitesmoke;
   font-size: 1.2rem;
   font-weight: 400;

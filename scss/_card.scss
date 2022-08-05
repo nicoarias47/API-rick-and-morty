@@ -1,35 +1,44 @@
 .card {
   border: none;
   background-color: #7ffa6700;
-  color: $color-blue;
+  color: whitesmoke;
   text-align: center;
   font-size: 1.2rem;
+  background-color: rgba(0, 0, 0, 0.508);
 }
 
 .card-body {
-  background-color: #7ffa6727;
+  background-color: #7ffa6700;
 }
 // BACK
 
-.back .card :not(.card-title-back, .card-location, .card-gender, .card-status) {
-  opacity: 0.2;
+.back
+  .card
+  :not(.card-title-back, .card-location, .card-gender, .card-status, .card-origin) {
+  opacity: 0.15;
 }
 
 .back .card .card-title-back {
   position: absolute;
-  bottom: 80%;
+  bottom: 85%;
   font-size: 1.1rem;
 }
 
 .card-gender {
   position: absolute;
-  bottom: 60%;
+  bottom: 65%;
+  font-size: 1.1rem;
+}
+
+.card-origin {
+  position: absolute;
+  bottom: 50%;
   font-size: 1.1rem;
 }
 
 .card-status {
   position: absolute;
-  bottom: 45%;
+  bottom: 35%;
   font-size: 1.1rem;
 }
 

@@ -35,6 +35,7 @@ const pintarCards = (data) => {
 
   data.forEach((el) => {
     const clone = templateCards.cloneNode(true);
+
     clone.querySelector("h5").textContent = el.name;
     clone.querySelector("p").textContent = el.species;
     clone.querySelector("img").setAttribute("src", el.image);
@@ -44,6 +45,8 @@ const pintarCards = (data) => {
     clone.querySelector(".card-gender").textContent = "Gender : " + el.gender;
     clone.querySelector(".card-location").textContent =
       "Last Location : " + el.location.name;
+    clone.querySelector(".card-origin").textContent =
+      "Origin: " + el.origin.name;
 
     fragment.appendChild(clone);
   });
