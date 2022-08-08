@@ -4,11 +4,11 @@
   color: whitesmoke;
   text-align: center;
   font-size: 1.2rem;
-  background-color: rgba(0, 0, 0, 0.508);
+  background-color: rgba(2, 177, 200, 0.431372549);
 }
 
 .card-body {
-  background-color: rgba(127, 250, 103, 0);
+  background-color: rgba(2, 177, 200, 0.431372549);
 }
 
 .back .card :not(.card-title-back, .card-location, .card-gender, .card-status, .card-origin) {
@@ -20,7 +20,7 @@
   bottom: 85%;
   font-size: 1.2rem;
   font-weight: 900;
-  color: #02b1c8;
+  letter-spacing: 1px;
 }
 
 .card-gender {
