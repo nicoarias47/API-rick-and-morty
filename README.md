@@ -1,3 +1,7 @@
-# Web Rick and Morty
+# Web Rick and Morty API
 
-## AJAX / consumiendo api de rick and morty
+## Buscador de personajes de la serie Rick and Morty
+
+### Consumiendo la API de: https://rickandmortyapi.com/
+
+JS - Fetch - Bootstrap - Template
