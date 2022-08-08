@@ -1,3 +1,33 @@
+.title {
+  font-family: "Schoolbell", cursive;
+  font-size: 100px;
+  line-height: 1;
+  color: #02b1c8;
+  margin: 20px 0 25px;
+  text-shadow: 0.02em 0.02em 0.02em #7ffa67, -0.02em -0.02em 0.02em #7ffa67, 0 0 0.2em #7ffa67;
+  animation: textShadow 2s linear infinite alternate;
+}
+.title span {
+  font-size: 50px;
+  margin: 0 -12px;
+  vertical-align: middle;
+}
+.title-link {
+  text-decoration: none;
+  text-transform: none;
+  color: #02b1c8;
+}
+.title-link:hover {
+  color: #02b1c8;
+}
+
+body {
+  background-image: url(../img/background.jpg);
+  background-repeat: repeat;
+  background-size: contain;
+  font-family: "Roboto", sans-serif;
+}
+
 .card {
   border: none;
   background-color: rgba(127, 250, 103, 0);
@@ -19,7 +49,7 @@
   position: absolute;
   bottom: 85%;
   font-size: 1.2rem;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 1px;
 }
 
@@ -47,29 +77,6 @@
   bottom: 5%;
   font-size: 1rem;
   text-align: start;
-}
-
-.title {
-  font-family: "Schoolbell", cursive;
-  font-size: 100px;
-  line-height: 1;
-  color: #02b1c8;
-  margin: 20px 0 25px;
-  text-shadow: 0.02em 0.02em 0.02em #7ffa67, -0.02em -0.02em 0.02em #7ffa67, 0 0 0.2em #7ffa67;
-  animation: textShadow 2s linear infinite alternate;
-}
-.title span {
-  font-size: 50px;
-  margin: 0 -12px;
-  vertical-align: middle;
-}
-.title-link {
-  text-decoration: none;
-  text-transform: none;
-  color: #02b1c8;
-}
-.title-link:hover {
-  color: #02b1c8;
 }
 
 #floatingInput {
@@ -100,12 +107,6 @@
 .btn-buscar:hover {
   background-color: rgba(2, 177, 200, 0.7058823529);
   box-shadow: none;
-}
-
-body {
-  background-image: url(../img/background.jpg);
-  background-repeat: repeat;
-  background-size: contain;
 }
 
 .page-link {
@@ -163,7 +164,7 @@ body {
 .front,
 .back {
     width: 100%;
-    height: 330px;
+    height: 400px;
   }
 }
 @media (max-width: 992px) {
@@ -171,7 +172,7 @@ body {
 .front,
 .back {
     width: 100%;
-    height: 360px;
+    height: 380px;
   }
 }
 @media (max-width: 768px) {
@@ -179,7 +180,7 @@ body {
 .front,
 .back {
     width: 100%;
-    height: 300px;
+    height: 330px;
   }
 }
 @media (max-width: 480px) {
@@ -187,7 +188,22 @@ body {
 .front,
 .back {
     width: 100%;
-    height: 270px;
+    height: 300px;
+  }
+  .back .card .card-title-back {
+    bottom: 80%;
+  }
+  .card-gender {
+    bottom: 68%;
+  }
+  .card-origin {
+    bottom: 35%;
+  }
+  .card-status {
+    bottom: 25%;
+  }
+  .card-location {
+    bottom: -5%;
   }
 }
 
