@@ -21,29 +21,33 @@
 .back .card .card-title-back {
   position: absolute;
   bottom: 85%;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: $color-blue;
 }
 
 .card-gender {
   position: absolute;
   bottom: 65%;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .card-origin {
   position: absolute;
-  bottom: 50%;
-  font-size: 1.1rem;
+  bottom: 45%;
+  font-size: 1rem;
+  text-align: start;
 }
 
 .card-status {
   position: absolute;
-  bottom: 35%;
-  font-size: 1.1rem;
+  bottom: 25%;
+  font-size: 1rem;
 }
 
 .card-location {
   position: absolute;
-  bottom: 10%;
-  font-size: 1.1rem;
+  bottom: 5%;
+  font-size: 1rem;
+  text-align: start;
 }
