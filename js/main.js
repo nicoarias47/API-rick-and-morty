@@ -201,4 +201,4 @@ const filtro = async () => {
 
 filtro();
 
-document.querySelector(".card-flip").classList.toggle("flip");
+//document.querySelector(".card-flip").classList.toggle("flip");
